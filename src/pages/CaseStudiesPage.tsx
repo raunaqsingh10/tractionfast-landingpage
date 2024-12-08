@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { ArrowRight } from 'lucide-react';
 import { caseStudies } from '../data/case-studies';
@@ -6,6 +6,17 @@ import type { CaseStudy } from '../types/case-study';
 import { fadeInUp, staggerContainer } from '../utils/animations';
 
 export const CaseStudiesPage: React.FC = () => {
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
+  const handleCaseStudyClick = (study: CaseStudy) => {
+    // Open PDF in a new tab
+    if (study.link) {
+      window.open(study.link, '_blank', 'noopener,noreferrer');
+    }
+  };
+
   return (
     <main className="pt-24 pb-16">
       <div className="container mx-auto px-4">
@@ -71,7 +82,7 @@ export const CaseStudiesPage: React.FC = () => {
                     </div>
                   </div>
                   <button
-                    onClick={() => window.open(study.link, '_blank')}
+                    onClick={() => handleCaseStudyClick(study)}
                     className="inline-flex items-center text-blue-600 hover:text-blue-700 font-medium group"
                   >
                     Read Full Case Study
