@@ -44,7 +44,11 @@ export const Footer: React.FC = () => {
         <div className="border-t border-gray-800 pt-4">
           <div className="flex flex-col md:flex-row justify-between items-center">
             <div className="flex items-center mb-4 md:mb-0">
-              <img src="src/white cropped.png" alt="TractionFast Logo" className="h-8 w-auto mr-2" />
+              <img
+                src="../white cropped.png"
+                alt="TractionFast Logo"
+                className="h-8 w-auto mr-2"
+              />
               <span className="text-sm">
                 © {currentYear} All rights reserved.
               </span>
