@@ -1,5 +1,6 @@
 import React from 'react';
 import { Facebook, Twitter, Linkedin, Github } from 'lucide-react';
+import logo from '../white cropped.png';
 
 export const Footer: React.FC = () => {
   const currentYear = new Date().getFullYear();
@@ -45,7 +46,7 @@ export const Footer: React.FC = () => {
           <div className="flex flex-col md:flex-row justify-between items-center">
             <div className="flex items-center mb-4 md:mb-0">
               <img
-                src="../white cropped.png"
+                src={logo}
                 alt="TractionFast Logo"
                 className="h-8 w-auto mr-2"
               />
