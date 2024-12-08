@@ -1,11 +1,17 @@
 import React from 'react';
 import { Calendar, Users } from 'lucide-react';
+import { logEvent } from '../utils/analytics';
 
 interface HeroProps {
   onBookCall: () => void;
 }
 
 export const Hero: React.FC<HeroProps> = ({ onBookCall }) => {
+  const handleBookCall = () => {
+    logEvent('Button', 'Click', 'Hero - Book Call');
+    window.open('https://cal.com/tractionfast-bookcall/45min', '_blank', 'noopener,noreferrer');
+  };
+
   return (
     <div className="relative min-h-screen bg-gradient-to-br from-blue-50 to-green-50">
       <div className="absolute inset-0 bg-white/40 backdrop-blur-sm"></div>
@@ -19,7 +25,7 @@ export const Hero: React.FC<HeroProps> = ({ onBookCall }) => {
             Validate your startup idea, gain real traction and improve your product based on actual customer feedback—all without wasting precious time.
           </p>
           <button
-            onClick={() => window.open('https://cal.com/tractionfast-bookcall/45min', '_blank', 'noopener,noreferrer')}
+            onClick={handleBookCall}
             className="inline-flex items-center px-8 py-4 text-lg font-semibold text-white bg-gradient-to-r from-purple-500 to-blue-500 rounded-full hover:opacity-90 transition-opacity duration-200"
           >
             <span className="flex items-center">
@@ -36,16 +42,6 @@ export const Hero: React.FC<HeroProps> = ({ onBookCall }) => {
             </p>
           </div>
         </div>
-        {/* Removed the following div to eliminate the Unsplash image */}
-        {/*
-        <div className="mt-16 relative">
-          <img
-            src="https://images.unsplash.com/photo-1531482615713-2afd69097998?auto=format&fit=crop&q=80&w=2940"
-            alt="Team collaboration"
-            className="rounded-xl shadow-2xl mx-auto max-w-4xl w-full object-cover"
-          />
-        </div>
-        */}
       </div>
     </div>
   );
