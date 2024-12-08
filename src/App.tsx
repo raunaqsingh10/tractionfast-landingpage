@@ -5,12 +5,14 @@ import { Footer } from './components/Footer';
 import { HomePage } from './pages/HomePage';
 import { CaseStudiesPage } from './pages/CaseStudiesPage';
 import { initGA, logPageView } from './utils/analytics';
+import { initClarity } from './utils/clarity';
 
 function App() {
   const location = useLocation();
 
   useEffect(() => {
     initGA();
+    initClarity();
   }, []);
 
   useEffect(() => {
