@@ -1,6 +1,7 @@
 import React from 'react';
 import { Calendar, Users } from 'lucide-react';
 import { logEvent } from '../utils/analytics';
+import { AnimatedGridPattern } from './ui/animated-grid-pattern';
 
 interface HeroProps {
   onBookCall: () => void;
@@ -14,15 +15,26 @@ export const Hero: React.FC<HeroProps> = ({ onBookCall }) => {
 
   return (
     <div className="relative min-h-screen bg-gradient-to-br from-blue-50 to-green-50">
-      <div className="absolute inset-0 bg-white/40 backdrop-blur-sm"></div>
+      <div className="absolute inset-0 bg-white/40 backdrop-blur-sm">
+        <AnimatedGridPattern
+          numSquares={30}
+          maxOpacity={0.1}
+          duration={3}
+          repeatDelay={1}
+          className="[mask-image:radial-gradient(800px_circle_at_center,white,transparent)]"
+        />
+      </div>
       <div className="relative container mx-auto px-4 pt-32 pb-16 sm:pt-40 sm:pb-24">
-        <div className="text-center max-w-4xl mx-auto">
-          <h1 className="text-5xl sm:text-6xl font-bold text-gray-900 mb-6 leading-tight">
-            Build Something
-            <span className="bg-gradient-to-r from-blue-600 to-green-600 bg-clip-text text-transparent"> People Actually Want</span>
+        <div className="text-center max-w-5xl mx-auto">
+          <h1 className="text-[2.5rem] sm:text-[3.5rem] md:text-[4.875rem] font-bold text-gray-900 mb-6 leading-tight">
+            Build <span className="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">Products</span>
+            {" "}
+            <span className="bg-gradient-to-r from-purple-600 to-blue-600 bg-clip-text text-transparent">Customers</span>
+            {" "}Actually{" "}
+            <span className="bg-gradient-to-r from-blue-600 to-green-600 bg-clip-text text-transparent">Want</span>
           </h1>
           <p className="text-xl sm:text-2xl text-gray-700 mb-10 leading-relaxed">
-            Validate your startup idea, gain real traction and improve your product based on actual customer feedback—all without wasting precious time.
+            We help startups and growing businesses validate ideas, sharpen their positioning, and create marketing strategies that drive predictable growth—saving you valuable time and resources.
           </p>
           <button
             onClick={handleBookCall}
@@ -30,7 +42,7 @@ export const Hero: React.FC<HeroProps> = ({ onBookCall }) => {
           >
             <span className="flex items-center">
               <Calendar className="w-5 h-5 mr-2" />
-              Book a Call
+              Get Your Free Strategy Session
             </span>
           </button>
           

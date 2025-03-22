@@ -1,3 +1,4 @@
+```tsx
 import React from 'react';
 import { Target, Users, Clock, CheckCircle, ArrowRight } from 'lucide-react';
 import { motion } from 'framer-motion';
@@ -91,3 +92,4 @@ export const ProblemSection: React.FC = () => {
     </section>
   );
 };
+```

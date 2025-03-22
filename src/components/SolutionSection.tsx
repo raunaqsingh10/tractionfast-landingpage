@@ -1,47 +1,50 @@
 import React from 'react';
-import { Facebook, MessageCircle, Brain, CheckCircle, Calendar } from 'lucide-react';
+import { Facebook, MessageCircle, Brain, Users } from 'lucide-react';
 import { motion } from 'framer-motion';
 import { fadeInUp, staggerContainer } from '../utils/animations';
+import { PricingCards } from './ui/pricing-cards';
 
 export const SolutionSection: React.FC = () => {
-  const scrollToHero = () => {
-    window.scrollTo({ top: 0, behavior: 'smooth' });
+  const handleBookCall = () => {
+    window.open('https://cal.com/tractionfast-bookcall/45min', '_blank', 'noopener,noreferrer');
   };
 
-  const offerings = [
+  const tiers = [
     {
-      title: 'Custom Facebook Ad Campaigns',
-      icon: Facebook,
-      items: [
-        'Professionally designed ad creatives tailored to your audience',
-        'Campaigns optimized for lead generation and market validation'
-      ]
+      name: "Growth Accelerator",
+      price: 749,
+      description: "Founders aiming for clear, initial market validation, generating consistent leads, and strategic guidance to refine their offering",
+      features: [
+        { name: "3-5 custom ad creatives", included: true },
+        { name: "Targeted Facebook ad campaign setup", included: true },
+        { name: "15 days of campaign support", included: true },
+        { name: "Detailed performance insights", included: true },
+        { name: "Actionable market insights", included: true },
+        { name: "1-on-1 strategy call", included: true },
+      ],
+      cta: {
+        text: "Book Your Spot",
+        onClick: handleBookCall,
+      }
     },
     {
-      title: 'Real Customer Insights',
-      icon: MessageCircle,
-      items: [
-        'Feedback from actual customers to refine your product or service',
-        'Insights to understand what\'s working and where to pivot'
-      ]
+      name: "Marketing Co-founder",
+      price: 999,
+      description: "Founders who want a reliable marketing partner, freeing their time to focus exclusively on building their product or core service.",
+      highlight: true,
+      features: [
+        { name: "Unlimited custom ad creatives", included: true },
+        { name: "Comprehensive Facebook ad campaign setup", included: true },
+        { name: "30 days of continuous campaign management and optimization", included: true },
+        { name: "In-depth performance analytics with weekly reporting", included: true },
+        { name: "Unlimited A/B testing", included: true },
+        { name: "Weekly 1-on-1 strategy call", included: true },
+      ],
+      cta: {
+        text: "Book Your Spot",
+        onClick: handleBookCall,
+      }
     },
-    {
-      title: 'Expert Strategy Guidance',
-      icon: Brain,
-      items: [
-        'A dedicated strategy discussion call to plan your growth',
-        'Ongoing support to ensure your campaigns deliver results'
-      ]
-    }
-  ];
-
-  const deliverables = [
-    'Professionally designed Facebook ad creatives tailored to your audience',
-    'High-converting ad copy optimized for engagement and lead generation',
-    'Full setup and optimization of your ad campaigns for maximum reach and effectiveness',
-    'A curated list of potential customers directly interested in your product/service',
-    'Actionable insights based on responses from your target audience',
-    'A 1-on-1 call to discuss your goals and refine your startup\'s marketing approach'
   ];
 
   return (
@@ -66,29 +69,13 @@ export const SolutionSection: React.FC = () => {
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true }}
-          variants={staggerContainer}
-          className="grid md:grid-cols-3 gap-8 mb-16"
+          variants={fadeInUp}
         >
-          {offerings.map((offering, index) => (
-            <motion.div 
-              key={index}
-              variants={fadeInUp}
-              className="bg-white p-6 rounded-xl shadow-sm hover:shadow-md transition-all duration-300"
-            >
-              <div className="flex items-center mb-4">
-                <offering.icon className="w-6 h-6 text-blue-600 mr-3" />
-                <h3 className="text-xl font-semibold text-gray-900">{offering.title}</h3>
-              </div>
-              <ul className="space-y-3">
-                {offering.items.map((item, idx) => (
-                  <li key={idx} className="flex items-start">
-                    <span className="w-1.5 h-1.5 bg-blue-600 rounded-full mt-2 mr-2 flex-shrink-0" />
-                    <span className="text-gray-600">{item}</span>
-                  </li>
-                ))}
-              </ul>
-            </motion.div>
-          ))}
+          <PricingCards 
+            tiers={tiers}
+            className="gap-8"
+            containerClassName="max-w-6xl"
+          />
         </motion.div>
 
         <motion.div 
@@ -96,33 +83,13 @@ export const SolutionSection: React.FC = () => {
           whileInView="visible"
           viewport={{ once: true }}
           variants={fadeInUp}
-          className="bg-white rounded-xl shadow-lg p-10 text-center mb-16 relative w-full md:w-1/2 mx-auto"
+          className="mt-12 flex items-center justify-center"
         >
-          <div className="absolute top-0 right-0 bg-black text-white px-4 py-1 rounded-bl-xl font-bold">
-            One time
-          </div>
-          <h3 className="text-3xl font-bold mb-4">Get Traction Faster Than Ever Before</h3>
-          <p className="text-2xl font-semibold mb-2">Starting at $200</p>
-          <p className="text-red-500 mb-6">4 Spots left for December.</p>
-          <h4 className="text-xl font-bold text-gray-900 mb-4">What's Included:</h4>
-          <ul className="space-y-3 text-left inline-block">
-            {deliverables.map((item, index) => (
-              <li key={index} className="flex items-start">
-                <CheckCircle className="w-5 h-5 text-green-600 mr-3 flex-shrink-0" />
-                <span className="text-gray-700">{item}</span>
-              </li>
-            ))}
-          </ul>
-          <div className="mt-8">
-            <button 
-              onClick={scrollToHero}
-              className="inline-flex items-center px-8 py-4 text-lg font-semibold text-white bg-gradient-to-r from-purple-500 to-blue-500 rounded-full hover:opacity-90 transition-opacity duration-200"
-            >
-              <span className="flex items-center">
-                <Calendar className="w-5 h-5 mr-2" />
-                Get Started Now
-              </span>
-            </button>
+          <div className="flex items-center px-4 py-2 bg-blue-50 border border-blue-100 rounded-full">
+            <Users className="w-5 h-5 text-blue-600 mr-2" />
+            <p className="text-sm font-medium text-blue-800">
+              Only 4 spots left for December batch!
+            </p>
           </div>
         </motion.div>
       </div>
