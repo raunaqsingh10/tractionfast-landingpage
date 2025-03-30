@@ -14,7 +14,7 @@ export const caseStudies: CaseStudy[] = [
     timeToMarket: '3 months',
     initialUsers: '60+ in first quarter',
     //image: studioSwapImage,
-    image: '../data/StudioSwap Logo.png',
+    image: '../StudioSwap Logo.png',
     link: studioSwapPDF,
   },
   {
@@ -26,7 +26,7 @@ export const caseStudies: CaseStudy[] = [
     timeToMarket: '2 months',
     initialUsers: '200 users',
     //image: spineWellImage,
-    image: '../data/SpineWell Logo.png',
+    image: '../SpineWell Logo.png',
     link: spineWellPDF,
   },
 ];
