@@ -14,7 +14,7 @@ export const caseStudies: CaseStudy[] = [
     timeToMarket: '3 months',
     initialUsers: '60+ in first quarter',
     //image: studioSwapImage,
-    image: 'https://w7.pngwing.com/pngs/279/877/png-transparent-hyperlink-computer-icons-link-text-logo-number-thumbnail.png',
+    image: '../data/StudioSwap Logo.png',
     link: studioSwapPDF,
   },
   {
@@ -26,7 +26,7 @@ export const caseStudies: CaseStudy[] = [
     timeToMarket: '2 months',
     initialUsers: '200 users',
     //image: spineWellImage,
-    image: 'https://w7.pngwing.com/pngs/279/877/png-transparent-hyperlink-computer-icons-link-text-logo-number-thumbnail.png',
+    image: '../data/SpineWell Logo.png',
     link: spineWellPDF,
   },
 ];
