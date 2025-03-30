@@ -2,6 +2,8 @@ import React from 'react';
 import { Target, Users, Clock, CheckCircle, ArrowRight } from 'lucide-react';
 import { motion } from 'framer-motion';
 import { fadeInUp, staggerContainer } from '../utils/animations';
+import { SectionBackground } from './ui/section-background';
+import { MagicCard } from './ui/magic-card';
 
 export const ProblemSection: React.FC = () => {
   const painPoints = [
@@ -27,7 +29,8 @@ export const ProblemSection: React.FC = () => {
   };
 
   return (
-    <section className="py-24 bg-white">
+    <SectionBackground pattern={{ squares: 25, opacity: 0.08, duration: 4 }}>
+      <section className="py-16 bg-white/80 backdrop-blur-sm">
       <div className="container mx-auto px-4">
         <motion.div 
           initial="hidden"
@@ -50,20 +53,22 @@ export const ProblemSection: React.FC = () => {
             {painPoints.map((point, index) => {
               const Icon = point.icon;
               return (
-                <div 
+                <MagicCard 
                   key={index}
-                  className="flex flex-col items-start p-8 bg-gray-50 rounded-2xl border border-gray-100 hover:border-gray-200 transition-all duration-300"
+                  className="p-8"
+                  gradientColor="#D9D9D955"
+                  gradientOpacity={0.5}
                 >
-                  <div className="p-3 bg-gray-100 rounded-xl mb-6">
-                    <Icon className="w-6 h-6 text-gray-700" />
+                  <div className="p-3 bg-blue-50 rounded-xl mb-6 w-fit">
+                    <Icon className="w-6 h-6 text-blue-600" />
                   </div>
                   <h3 className="text-xl font-semibold text-gray-900 mb-4">
                     {point.title}
                   </h3>
-                  <p className="text-gray-600 leading-relaxed">
+                  <p className="text-gray-600 leading-relaxed text-left">
                     {point.description}
                   </p>
-                </div>
+                </MagicCard>
               );
             })}
           </motion.div>
@@ -88,6 +93,7 @@ export const ProblemSection: React.FC = () => {
           </motion.div>
         </motion.div>
       </div>
-    </section>
+      </section>
+    </SectionBackground>
   );
 };

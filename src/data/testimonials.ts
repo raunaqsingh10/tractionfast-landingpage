@@ -1,28 +1,67 @@
 import type { Testimonial } from '../types';
+import rahulImage from './testimonial-images/rahul-sharma.png';
+import priyaImage from './testimonial-images/priya-nair.png';
+import jasonImage from './testimonial-images/jason-lee.png';
+import rohanImage from './testimonial-images/rohan-deshmukh.png';
+import danielImage from './testimonial-images/daniel-kim.png';
+import melissaImage from './testimonial-images/melissa-grant.png';
+import aaravImage from './testimonial-images/aarav-menon.png';
 
 export const testimonials: Testimonial[] = [
   {
-    id: 1,
-    name: 'Sarah Chen',
-    title: 'Founder & CEO',
-    company: 'TechFlow',
-    quote: 'TractionFast helped us validate our product idea in just weeks. Their guidance saved us months of development time.',
-    image: 'https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&q=80&w=200&h=200'
+    author: {
+      name: 'Rahul Sharma',
+      handle: 'GenWise',
+      avatar: rahulImage
+    },
+    text: 'TractionFast didn\'t just run ads—they helped us completely redefine our positioning. We gained clarity on who our ideal customers are and dramatically boosted our early growth.'
   },
   {
-    id: 2,
-    name: 'Michael Rodriguez',
-    title: 'Co-founder',
-    company: 'DataSync',
-    quote: 'The structured approach to customer acquisition helped us get our first 100 customers faster than we thought possible.',
-    image: 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?auto=format&fit=crop&q=80&w=200&h=200'
+    author: {
+      name: 'Priya Nair',
+      handle: 'FinFolio',
+      avatar: priyaImage
+    },
+    text: 'TractionFast gave us absolute clarity on our market positioning. Within days, we had real leads and feedback that helped shape our entire product strategy.'
   },
   {
-    id: 3,
-    name: 'Emily Watson',
-    title: 'Product Lead',
-    company: 'GrowthLabs',
-    quote: 'TractionFast\'s feedback-driven iteration process transformed how we build products. Highly recommended!',
-    image: 'https://images.unsplash.com/photo-1438761681033-6461ffad8d80?auto=format&fit=crop&q=80&w=200&h=200'
+    author: {
+      name: 'Jason Lee',
+      handle: 'DevNest',
+      avatar: jasonImage
+    },
+    text: 'I was struggling with getting consistent leads until I started working with TractionFast. Their ad creatives and targeting were spot-on.'
+  },
+  {
+    author: {
+      name: 'Rohan Deshmukh',
+      handle: 'Skillera',
+      avatar: rohanImage
+    },
+    text: 'The Growth Accelerator package was perfect for us. We validated our idea quickly and got the confidence to scale without guesswork.'
+  },
+  {
+    author: {
+      name: 'Daniel Kim',
+      handle: 'AuthPilot',
+      avatar: danielImage
+    },
+    text: 'Our ad campaigns finally started converting after TractionFast came in. Within two weeks, we were getting daily qualified leads.'
+  },
+  {
+    author: {
+      name: 'Melissa Grant',
+      handle: 'TechFlow',
+      avatar: melissaImage
+    },
+    text: 'Working with TractionFast transformed our approach to product validation. Their strategic insights helped us avoid costly mistakes and find our perfect market fit.'
+  },
+  {
+    author: {
+      name: 'Aarav Menon',
+      handle: 'DataSync',
+      avatar: aaravImage
+    },
+    text: 'The structured approach to customer acquisition helped us get our first 100 customers faster than we thought possible.'
   }
 ];

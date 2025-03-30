@@ -1,13 +1,16 @@
 export * from './form';
 export * from './case-study';
 
-export interface Testimonial {
-  id: number;
+export interface TestimonialAuthor {
   name: string;
-  title: string;
-  company: string;
-  quote: string;
-  image: string;
+  handle: string;
+  avatar: string;
+}
+
+export interface Testimonial {
+  author: TestimonialAuthor;
+  text: string;
+  href?: string;
 }
 
 export interface Benefit {

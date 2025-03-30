@@ -1,6 +1,7 @@
 import React from 'react';
 import { Calendar, Users } from 'lucide-react';
 import { logEvent } from '../utils/analytics';
+import { Typewriter } from './ui/typewriter';
 import { AnimatedGridPattern } from './ui/animated-grid-pattern';
 
 interface HeroProps {
@@ -33,9 +34,22 @@ export const Hero: React.FC<HeroProps> = ({ onBookCall }) => {
             {" "}Actually{" "}
             <span className="bg-gradient-to-r from-blue-600 to-green-600 bg-clip-text text-transparent">Want</span>
           </h1>
-          <p className="text-xl sm:text-2xl text-gray-700 mb-10 leading-relaxed">
-            We help startups and growing businesses validate ideas, sharpen their positioning, and create marketing strategies that drive predictable growth—saving you valuable time and resources.
-          </p>
+          <div className="text-xl sm:text-2xl text-gray-700 mb-10 leading-relaxed">
+            <Typewriter
+              prefix="We help startups and growing businesses "
+              suffixes={[
+                "validate ideas",
+                "sharpen positioning",
+                "drive predictable growth",
+                "save valuable resources",
+                "achieve product-market fit"
+              ]}
+              speed={40}
+              deletionSpeed={30}
+              pauseDuration={2500}
+              className="text-gray-700"
+            />
+          </div>
           <button
             onClick={handleBookCall}
             className="inline-flex items-center px-8 py-4 text-lg font-semibold text-white bg-gradient-to-r from-purple-500 to-blue-500 rounded-full hover:opacity-90 transition-opacity duration-200"

@@ -1,9 +1,10 @@
 import React from 'react';
 import { Hero } from '../components/Hero';
 import { ProblemSection } from '../components/ProblemSection';
+import { MethodSection } from '../components/MethodSection';
 import { SolutionSection } from '../components/SolutionSection';
 import { Testimonials } from '../components/Testimonials';
-import { ContactSection } from '../components/ContactSection';
+import { FinalCTA } from '../components/FinalCTA';
 
 export const HomePage: React.FC = () => {
   const scrollToContact = () => {
@@ -17,9 +18,10 @@ export const HomePage: React.FC = () => {
     <main>
       <Hero onBookCall={scrollToContact} />
       <ProblemSection />
+      <MethodSection />
       <SolutionSection />
       <Testimonials />
-      <ContactSection />
+      <FinalCTA />
     </main>
   );
 };

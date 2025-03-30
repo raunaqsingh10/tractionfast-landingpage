@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Menu, X } from 'lucide-react';
 import { Link, useNavigate, useLocation } from 'react-router-dom';
 import logo from "../Black Logo cropped.png";
+import { cn } from '../lib/utils';
 import NavHeader from './ui/nav-header';
 
 interface NavbarProps {
@@ -49,17 +50,22 @@ export const Navbar: React.FC<NavbarProps> = () => {
   return (
     <nav
       className={`fixed w-full z-50 transition-all duration-200 ${
-        isScrolled ? 'bg-white shadow-md' : 'bg-transparent'
+        isScrolled
+          ? 'bg-white/80 backdrop-blur-[12px] border-b border-gray-100/50'
+          : 'bg-transparent'
       }`}
     >
       <div className="container mx-auto px-4">
-        <div className="flex items-center h-20">
+        <div className="flex items-center justify-between h-20">
           <div className="w-1/4 flex-shrink-0">
             <Link to="/">
               <img
                 src={logo}
                 alt="Company Logo"
-                className="h-6 w-auto object-contain sm:h-8"
+                className={cn(
+                  "h-6 w-auto object-contain sm:h-8 transition-opacity duration-300",
+                  isScrolled ? "opacity-100" : "opacity-90 hover:opacity-100"
+                )}
               />
             </Link>
           </div>
@@ -81,24 +87,27 @@ export const Navbar: React.FC<NavbarProps> = () => {
         </div>
 
         {isMenuOpen && (
-          <div className="md:hidden bg-white flex items-center justify-center">
+          <div className={cn(
+            "md:hidden flex items-center justify-center",
+            isScrolled ? "bg-white/80 backdrop-blur-[12px]" : "bg-white/90"
+          )}>
             <div className="flex flex-col space-y-4 py-4 items-center">
               <button
                 onClick={() => scrollToSection('pricing')}
-                className="text-gray-700 hover:text-blue-600 transition-colors px-4 py-2"
+                className="text-gray-700 hover:text-blue-600 transition-colors px-4 py-2 rounded-lg hover:bg-blue-50/50"
               >
                 Pricing
               </button>
               <Link
                 to="/case-studies"
-                className="text-gray-700 hover:text-blue-600 transition-colors px-4 py-2"
+                className="text-gray-700 hover:text-blue-600 transition-colors px-4 py-2 rounded-lg hover:bg-blue-50/50"
                 onClick={() => setIsMenuOpen(false)}
               >
                 Case Studies
               </Link>
               <button
                 onClick={handleBookCall}
-                className="text-gray-700 hover:text-blue-600 transition-colors px-4 py-2"
+                className="text-gray-700 hover:text-blue-600 transition-colors px-4 py-2 rounded-lg hover:bg-blue-50/50"
               >
                 Book a Call
               </button>
