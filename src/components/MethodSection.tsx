@@ -1,9 +1,9 @@
 import React from 'react';
 import { Target, Zap, TrendingUp } from 'lucide-react';
 import { motion } from 'framer-motion';
+import { cn } from '../lib/utils';
 import { fadeInUp, staggerContainer } from '../utils/animations';
 import { SectionBackground } from './ui/section-background';
-import { MagicCard } from './ui/magic-card';
 
 export const MethodSection: React.FC = () => {
   const steps = [
@@ -49,22 +49,25 @@ export const MethodSection: React.FC = () => {
               {steps.map((step, index) => {
                 const Icon = step.icon;
                 return (
-                  <MagicCard
+                  <div
                     key={index}
-                    className="p-8 backdrop-blur-sm"
-                    gradientColor="#D9D9D955"
-                    gradientOpacity={0.5}
+                    className={cn(
+                      "group p-8 rounded-xl transition-all duration-300",
+                      "bg-gradient-to-br from-white to-gray-50",
+                      "border border-gray-100 hover:border-gray-200",
+                      "shadow-sm hover:shadow-lg hover:-translate-y-1"
+                    )}
                   >
-                    <div className="p-3 bg-blue-50 rounded-xl mb-6 w-fit">
+                    <div className="p-3 bg-blue-50 rounded-xl mb-6 w-fit group-hover:bg-blue-100 transition-colors duration-300">
                       <Icon className="w-6 h-6 text-blue-600" />
                     </div>
-                    <h3 className="text-xl font-semibold text-gray-900 mb-4">
+                    <h3 className="text-xl font-semibold text-gray-900 mb-4 group-hover:text-blue-600 transition-colors duration-300 text-left">
                       {step.title}
                     </h3>
                     <p className="text-gray-600 leading-relaxed text-left">
                       {step.description}
                     </p>
-                  </MagicCard>
+                  </div>
                 );
               })}
             </motion.div>

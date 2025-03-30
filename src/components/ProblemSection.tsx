@@ -2,8 +2,7 @@ import React from 'react';
 import { Target, Users, Clock, CheckCircle, ArrowRight } from 'lucide-react';
 import { motion } from 'framer-motion';
 import { fadeInUp, staggerContainer } from '../utils/animations';
-import { SectionBackground } from './ui/section-background';
-import { MagicCard } from './ui/magic-card';
+import { cn } from '../lib/utils';
 
 export const ProblemSection: React.FC = () => {
   const painPoints = [
@@ -29,8 +28,7 @@ export const ProblemSection: React.FC = () => {
   };
 
   return (
-    <SectionBackground pattern={{ squares: 25, opacity: 0.08, duration: 4 }}>
-      <section className="py-16 bg-white/80 backdrop-blur-sm">
+    <section className="py-16 bg-white">
       <div className="container mx-auto px-4">
         <motion.div 
           initial="hidden"
@@ -53,22 +51,25 @@ export const ProblemSection: React.FC = () => {
             {painPoints.map((point, index) => {
               const Icon = point.icon;
               return (
-                <MagicCard 
+                <div
                   key={index}
-                  className="p-8"
-                  gradientColor="#D9D9D955"
-                  gradientOpacity={0.5}
+                  className={cn(
+                    "group p-8 rounded-xl transition-all duration-300",
+                    "bg-gradient-to-br from-white to-gray-50",
+                    "border border-gray-100 hover:border-gray-200",
+                    "shadow-sm hover:shadow-lg hover:-translate-y-1"
+                  )}
                 >
-                  <div className="p-3 bg-blue-50 rounded-xl mb-6 w-fit">
+                  <div className="p-3 bg-blue-50 rounded-xl mb-6 w-fit group-hover:bg-blue-100 transition-colors duration-300">
                     <Icon className="w-6 h-6 text-blue-600" />
                   </div>
-                  <h3 className="text-xl font-semibold text-gray-900 mb-4">
+                  <h3 className="text-xl font-semibold text-gray-900 mb-4 group-hover:text-blue-600 transition-colors duration-300">
                     {point.title}
                   </h3>
                   <p className="text-gray-600 leading-relaxed text-left">
                     {point.description}
                   </p>
-                </MagicCard>
+                </div>
               );
             })}
           </motion.div>
@@ -94,6 +95,5 @@ export const ProblemSection: React.FC = () => {
         </motion.div>
       </div>
       </section>
-    </SectionBackground>
   );
 };
