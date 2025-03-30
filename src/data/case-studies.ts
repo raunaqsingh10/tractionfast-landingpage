@@ -1,8 +1,8 @@
 import type { CaseStudy } from '../types/case-study';
-import studioSwapPDF from '../data/TractionFast - StudioSwap Case Study.pdf';
-import spineWellPDF from '../data/TractionFast - SpineWell Case Study.pdf';
-import studioSwapImage from '../StudioSwap Logo.png';
-import spineWellImage from '../SpineWell Logo.png';
+import studioSwapPDF from './TractionFast - StudioSwap Case Study.pdf';
+import spineWellPDF from './TractionFast - SpineWell Case Study.pdf';
+import studioSwapImage from './StudioSwap Logo.png';
+import spineWellImage from './SpineWell Logo.png';
 
 export const caseStudies: CaseStudy[] = [
   {
