@@ -31,7 +31,7 @@ export const FinalCTA: React.FC = () => {
             <div className="flex items-center px-4 py-2 bg-blue-50 border border-blue-100 rounded-full">
               <Users className="w-5 h-5 text-blue-600 mr-2" />
               <p className="text-sm font-medium text-blue-800">
-                Only 8 spots left for April batch!
+                Only 2 spots left for May batch!
               </p>
             </div>
 
